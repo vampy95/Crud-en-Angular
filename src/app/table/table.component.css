@@ -1,0 +1,14 @@
+.formulario{
+    float: right;
+    width: 50%;
+    margin: auto;
+}
+.tabla{
+    float: left;
+    width: 50%;
+    margin: auto;
+}
+.container{
+    margin: auto;
+    max-width: 1300px;
+}

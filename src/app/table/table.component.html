@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="tabla">
+
+        <!-- BOTON QUE LLAMA AL COMPOENETE ADD-PELICULAS -->
+
+        <div style="margin-bottom: 5px">
+            <button mat-raised-button color="primary" (click)="showAddPelicua()">Añadir nueva pelicula</button>
+        </div>
+
+        <!-- TABLA QUE MUESTRA TODAS LAS PELICULAS -->
+
+        <table border>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Director</th>
+                    <th>Clasificacion</th>
+                    <th>Eliminar</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pelicula of peliculas">
+                    <td> {{pelicula.id}} </td>
+                    <td> {{pelicula.nombre}} </td>
+                    <td> {{pelicula.director}} </td>
+                    <td> {{pelicula.clasificacion}} </td>
+                    <td>
+                        <button mat-raised-button color="warn" (click)="deletePelicula(pelicula)">Eliminar</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="selectPelicula(pelicula)">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Director</th>
+                    <th>Clasificacion</th>
+                    <th>Eliminar</th>
+                    <th>Actualizar</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- FORMULARIO DE ADDPELICULA Y DE UPDATEPELICULA -->
+
+    <div class="formulario">
+        <div *ngIf="showAdd">
+            <app-add-pelicula [peliculas]="peliculas" (hideAdd)="hideAdd($event)">Cargando componente...</app-add-pelicula>
+        </div>
+        <div *ngIf="showUpdate">
+            <app-update-pelicula [pelicula]="pelicula" (hideUpdate)="hideUpdate($event)">Cargando componente...</app-update-pelicula>
+        </div>
+    </div>
+
+</div> <!-- Final del container -->
